@@ -1,7 +1,8 @@
 # app/controllers/items_controller.rb
-class ItemsController < ApplicationController
+class Api::V1::ItemsController < ApplicationController
   before_action :set_todo
   before_action :set_todo_item, only: [:show, :update, :destroy]
+  before_action :authenticate_api_v1_user!
 
   # GET /todos/:todo_id/items
   def index
